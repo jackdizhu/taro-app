@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View } from '@tarojs/components';
+import value from './context';
 
 import './select.scss';
 
@@ -22,7 +23,9 @@ export default class Select extends Component {
   render () {
     return (
       <View className='select-component'>
-        {this.props.children}
+        <value.Provider value={this.props.value}>
+          {this.props.children}
+        </value.Provider>
       </View>
     );
   }

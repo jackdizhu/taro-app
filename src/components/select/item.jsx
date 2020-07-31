@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from '@tarojs/components';
+import context from './context';
 
 import './select.scss';
 
@@ -11,7 +12,9 @@ export default class Item extends Component {
 
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () {
+    console.log(this.context, '-- Item this.context --');
+  }
 
   componentWillUnmount () { }
 
@@ -19,6 +22,7 @@ export default class Item extends Component {
 
   componentDidHide () { }
 
+  static contextType = context
   render () {
     const {name, value} = this.props;
     return (

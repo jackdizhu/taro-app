@@ -10,6 +10,7 @@ export default class Select extends Component {
 
   // state
   state = {
+    value: 1,
     // keyword: '',
     list: [
       {name: '内容1', id: 1},
@@ -35,7 +36,7 @@ export default class Select extends Component {
   render () {
     return (
       <View className='select-page'>
-        <VSelect>
+        <VSelect value={this.state.value}>
           {
             this.state.list.map((item, index) => {
               return (
