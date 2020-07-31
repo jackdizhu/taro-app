@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'taro-app1',
   date: '2020-7-31',
@@ -14,9 +16,13 @@ const config = {
   },
   copy: {
     patterns: [
+      { from: 'src/sitemap.json', to: 'dist/sitemap.json' }
     ],
     options: {
     }
+  },
+  alias: {
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
   },
   framework: 'react',
   mini: {
