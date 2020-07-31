@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 
 import dva from './dva';
 import models from './models';
 
 // import configStore from './store'
 
-import './styles/index.scss'
+import './styles/index.scss';
 
-import './app.scss'
+import './app.scss';
 
 // const store = configStore()
 const dvaApp = dva.createApp({
@@ -36,8 +36,8 @@ class App extends Component {
       <Provider store={store}>
         {this.props.children}
       </Provider>
-    )
+    );
   }
 }
 
-export default App
+export default App;
