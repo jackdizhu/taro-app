@@ -1,0 +1,13 @@
+.select-component {
+  padding: 12px 14px;
+  border: 1px solid $color-border-base;
+  color: $color-brand;
+  .opction-component {
+    height: 64px;
+    line-height: 64px;
+  }
+  line-height: $line-height-base;
+  .opction-component + .opction-component {
+    border-top: 1px solid $color-border-base;
+  }
+}

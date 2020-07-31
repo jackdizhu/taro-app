@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import Taro from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
-import request from '@utils/request'
+import React, { Component } from 'react';
+import Taro from '@tarojs/taro';
+import { View, Button, Text } from '@tarojs/components';
+import request from '@utils/request';
 
-import './index.scss'
+import './index.scss';
 
 export default class List extends Component {
 
@@ -17,7 +17,7 @@ export default class List extends Component {
   componentWillMount () { }
 
   componentDidMount () {
-    this.init()
+    this.init();
   }
 
   componentWillUnmount () { }
@@ -28,17 +28,17 @@ export default class List extends Component {
 
   // methods
   itemOnClick (item) {
-    console.log(this.state.list.find(li => li.name === item.name), 'itemOnClick')
+    console.log(this.state.list.find(li => li.name === item.name), 'itemOnClick');
     return function (event) {
-      console.log(event, 'return itemOnClick')
-    }
+      console.log(event, 'return itemOnClick');
+    };
   }
   promiseAdd () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(1)
-      }, 1500)
-    })
+        resolve(1);
+      }, 1500);
+    });
   }
   httpGetData () {
     let list = [
@@ -47,19 +47,19 @@ export default class List extends Component {
       {name: '内容3', id: 3},
       {name: '名称4', id: 4},
       {name: '名称5', id: 5}
-    ]
-    Taro.showLoading()
+    ];
+    Taro.showLoading();
     request('http://192.168.199.68:10086/pages/index/index', {name: 'test'}, 'POST')
       .then(res => {
         this.setState({
           list: list,
           filterList: list
-        })
-        Taro.hideLoading()
+        });
+        Taro.hideLoading();
       })
       .catch(err => {
-        Taro.hideLoading()
-      })
+        Taro.hideLoading();
+      });
   }
   init () {
     let list = [
@@ -68,34 +68,34 @@ export default class List extends Component {
       {name: '内容3', id: 3},
       {name: '名称4', id: 4},
       {name: '名称5', id: 5}
-    ]
+    ];
     this.promiseAdd().then(res => {
       this.setState({
         list: list,
         filterList: list
-      })
-      Taro.hideLoading()
-    })
+      });
+      Taro.hideLoading();
+    });
   }
   getVal (event) {
-    return typeof event === 'string' ? event : event.currentTarget.value
+    return typeof event === 'string' ? event : event.currentTarget.value;
   }
   getFilterList (event) {
-    let value = this.getVal(event)
-    console.log(event, '-- getFilterList --')
+    let value = this.getVal(event);
+    console.log(event, '-- getFilterList --');
     if (value === this.state.keyword) {
-      return false
+      return false;
     }
-    let arr = []
+    let arr = [];
     if (value === '') {
-      arr = this.state.list
+      arr = this.state.list;
     } else {
-      arr = this.state.list.filter(item => item.name.indexOf(value) !== -1)
+      arr = this.state.list.filter(item => item.name.indexOf(value) !== -1);
     }
     this.setState({
       keyword: value,
       filterList: arr
-    })
+    });
   }
 
   render () {
@@ -109,11 +109,11 @@ export default class List extends Component {
                   <Button className='add_btn' onClick={this.itemOnClick(item).bind(this)}>{item.name}</Button>
                   <Text>{item.name}</Text>
                 </View>
-              )
+              );
             })
           }
         </View>
       </View>
-    )
+    );
   }
 }
