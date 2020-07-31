@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
-import request from '../../utils/request'
+import request from '@utils/request'
 
 import './index.scss'
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Taro from '@tarojs/taro'
 import { View, Text, Input, Button } from '@tarojs/components'
 import { AtButton, AtInput } from 'taro-ui'
-import request from '@/utils/request'
+import request from '@utils/request'
 
 import "taro-ui/dist/style/components/button.scss" // 按需引入
 import "taro-ui/dist/style/components/input.scss";

@@ -22,7 +22,7 @@ const config = {
     }
   },
   alias: {
-    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils'),
   },
   framework: 'react',
   mini: {
