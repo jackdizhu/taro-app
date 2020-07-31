@@ -6,6 +6,8 @@ import models from './models';
 
 // import configStore from './store'
 
+import './styles/index.scss'
+
 import './app.scss'
 
 // const store = configStore()

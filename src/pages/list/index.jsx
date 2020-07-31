@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { View, Button } from '@tarojs/components'
+import { View, Button, Text } from '@tarojs/components'
 import request from '@utils/request'
 
 import './index.scss'
@@ -100,12 +100,15 @@ export default class List extends Component {
 
   render () {
     return (
-      <View className='index'>
+      <View className='list-page'>
         <View>
           {
             this.state.filterList.map((item, index) => {
               return (
-              <Button className='add_btn' key={item.id} onClick={this.itemOnClick(item).bind(this)}>{item.name}</Button>
+                <View key={item.id}>
+                  <Button className='add_btn' onClick={this.itemOnClick(item).bind(this)}>{item.name}</Button>
+                  <Text>{item.name}</Text>
+                </View>
               )
             })
           }

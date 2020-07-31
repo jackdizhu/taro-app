@@ -24,6 +24,9 @@ const config = {
   alias: {
     '@utils': path.resolve(__dirname, '..', 'src/utils'),
   },
+  sass: {
+    resource: path.resolve(__dirname, '..', 'src/styles/variable.scss')
+  },
   framework: 'react',
   mini: {
     postcss: {
