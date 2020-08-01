@@ -10,16 +10,25 @@ export default class Index extends Component {
   state = {
   }
 
-  componentWillMount () { }
-
-  componentDidMount () {
+  componentWillMount () {
+    console.log('-- componentWillMount --')
   }
 
-  componentWillUnmount () { }
+  componentDidMount () {
+    console.log('-- componentDidMount --')
+  }
 
-  componentDidShow () { }
+  componentWillUnmount () { 
+    console.log('-- componentWillUnmount --')
+  }
 
-  componentDidHide () { }
+  componentDidShow () {
+    console.log('-- componentDidShow --')
+  }
+
+  componentDidHide () {
+    console.log('-- componentDidHide --')
+  }
 
   routerToList (page = 'list') {
     return function () {

@@ -25,9 +25,13 @@ export default class Item extends Component {
   static contextType = context
   render () {
     const {name, value} = this.props;
+    let isActive = this.context.value === value
     return (
       <View className='item-component'>
         <Text data-value={value}>{name}</Text>
+        {
+          isActive && <Text className='icon'>✔</Text>
+        }
       </View>
     );
   }

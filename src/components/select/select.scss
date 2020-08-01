@@ -1,10 +1,21 @@
 .select-component {
   padding: 12px 14px;
   border: 1px solid $color-border-base;
-  color: $color-brand;
+  color: $color-text-base;
   .opction-component {
     height: 64px;
     line-height: 64px;
+  }
+  .opction-component-active {
+    background: $color-bg-base;
+    .item-component {
+      .icon {
+        float: right;
+      }
+    }
+  }
+  .opction-component-disabled {
+    color: $color-text-disabled;
   }
   line-height: $line-height-base;
   .opction-component + .opction-component {
