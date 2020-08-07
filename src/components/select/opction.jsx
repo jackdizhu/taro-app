@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { View } from '@tarojs/components';
-import context from './context';
+// import context from './context';
+import { getContext } from './context';
 import './select.scss';
+
+const context = getContext('select-value');
 
 export default class Opction extends Component {
   // state
@@ -14,6 +17,10 @@ export default class Opction extends Component {
     // console.log(this.context, '-- Opction this.context --');
   }
 
+  // componentWillReceiveProps (nextProps) {
+  //   console.log(nextProps, '-- Opction nextProps --');
+  // }
+
   componentWillUnmount () { }
 
   componentDidShow () { }
@@ -23,15 +30,15 @@ export default class Opction extends Component {
   // methods
   onChange () {
     if (!this.props.disabled && this.context.onChange) {
-      this.context.onChange(this.props.value)
+      this.context.onChange(this.props.value);
     }
   }
 
   static contextType = context
   render () {
-    const {value, disabled, children} = this.props
-    let activeClass = this.context.value === value ? 'opction-component-active ' : ''
-    let disableClass = disabled ? 'opction-component-disabled ' : ''
+    const {value, disabled, children} = this.props;
+    let activeClass = this.context.value === value ? 'opction-component-active ' : '';
+    let disableClass = disabled ? 'opction-component-disabled ' : '';
     return (
       <View className={'opction-component ' + activeClass + disableClass} onClick={this.onChange.bind(this)}>
         {children}
