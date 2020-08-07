@@ -14,6 +14,12 @@ export default class Opction extends Component {
   componentWillMount () { }
 
   componentDidMount () {
+    // DOMSubtreeModified DOM子元素修改
+    this.opction && this.opction.addEventListener('DOMSubtreeModified', (event) => {
+      if (event.target === this.opction.childNodes[0]) {
+        console.log(`Opction: props.value is ${this.props.value} onChanged`);
+      }
+    }, false);
     // console.log(this.context, '-- Opction this.context --');
   }
 
@@ -40,7 +46,7 @@ export default class Opction extends Component {
     let activeClass = this.context.value === value ? 'opction-component-active ' : '';
     let disableClass = disabled ? 'opction-component-disabled ' : '';
     return (
-      <View className={'opction-component ' + activeClass + disableClass} onClick={this.onChange.bind(this)}>
+      <View ref={(ref => this.opction = ref)} className={'opction-component ' + activeClass + disableClass} onClick={this.onChange.bind(this)}>
         {children}
       </View>
     );
