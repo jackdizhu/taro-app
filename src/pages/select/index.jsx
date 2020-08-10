@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View } from '@tarojs/components';
 import VSelect from '@components/select/select.jsx';
 import VOpction from '@components/select/opction.jsx';
-import VItem from '@components/select/item.jsx';
+// import VItem from '@components/select/item.jsx';
+import VItem from '@components/select/itemFunctional.jsx';
 
 import './index.scss';
 
@@ -37,10 +38,11 @@ export default class Select extends Component {
   onChange (val) {
     this.setState({
       value: val
-    })
+    });
   }
 
   render () {
+    const context = {value: this.state.value};
     return (
       <View className='select-page'>
         <VSelect value={this.state.value} onChange={this.onChange.bind(this)}>
@@ -48,7 +50,7 @@ export default class Select extends Component {
             this.state.list.map((item, index) => {
               return (
                 <VOpction key={item.id} name={item.name} value={item.id} disabled={item.disabled}>
-                  <VItem name={item.name} value={item.id}></VItem>
+                  <VItem name={item.name} value={item.id} context={context}></VItem>
                 </VOpction>
               );
             })
